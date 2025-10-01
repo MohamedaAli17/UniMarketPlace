@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sellora</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-star"></i>
+                    <span>Sellora</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="products.html" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        Products
+                    </a></li>
+                    <li><a href="orders.html" class="nav-link">Orders</a></li>
+                    <li><a href="marketing.html" class="nav-link">Marketing</a></li>
+                    <li><a href="#" class="nav-link">Analytics</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search Anything..." class="search-input">
+                </div>
+                <div class="nav-icons">
+                    <i class="fas fa-question-circle"></i>
+                    <i class="fas fa-cog"></i>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-header">
+            <div class="header-text">
+                <h1>My Products</h1>
+                <p>Manage your products, track sales, and monitor performance.</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" id="addProductBtn">
+                    <i class="fas fa-plus"></i>
+                    Add Product
+                </button>
+                <button class="btn-secondary">
+                    <i class="fas fa-filter"></i>
+                    Filter
+                </button>
+                <div class="view-toggle">
+                    <button class="view-btn active" id="gridView">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" id="listView">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalProducts">0</h3>
+                    <p>Total Products</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalSales">0</h3>
+                    <p>Total Sales</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-pound-sign"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalRevenue">£0</h3>
+                    <p>Total Revenue</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalViews">0</h3>
+                    <p>Product Views</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Products Grid -->
+        <div class="products-container" id="myProductsContainer">
+            <!-- User's products will be dynamically loaded here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination-left">
+                <span>Show:</span>
+                <select class="show-select">
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="pagination-right">
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="pagination-dots">...</span>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Product</h2>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="product-form" id="productForm">
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" name="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Laptop & PC">Laptop & PC</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Books">Books</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price (£)</label>
+                    <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">Product Image URL</label>
+                    <input type="url" id="productImage" name="productImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="productStock">Stock Quantity</label>
+                    <input type="number" id="productStock" name="productStock" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div class="modal" id="editProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Product</h2>
+                <button class="close-btn" id="closeEditModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="product-form" id="editProductForm">
+                <input type="hidden" id="editProductId">
+                <div class="form-group">
+                    <label for="editProductName">Product Name</label>
+                    <input type="text" id="editProductName" name="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProductCategory">Category</label>
+                    <select id="editProductCategory" name="productCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Laptop & PC">Laptop & PC</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Books">Books</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editProductPrice">Price (£)</label>
+                    <input type="number" id="editProductPrice" name="productPrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProductDescription">Description</label>
+                    <textarea id="editProductDescription" name="productDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editProductImage">Product Image URL</label>
+                    <input type="url" id="editProductImage" name="productImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="editProductStock">Stock Quantity</label>
+                    <input type="number" id="editProductStock" name="productStock" min="0" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelEditBtn">Cancel</button>
+                    <button type="submit" class="btn-primary">Update Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js"></script>
+</body>
+</html>

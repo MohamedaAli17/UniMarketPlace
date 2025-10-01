@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing - Sellora</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <i class="fas fa-star"></i>
+                    <span>Sellora</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="products.html" class="nav-link">
+                        <i class="fas fa-box"></i>
+                        Products
+                    </a></li>
+                    <li><a href="orders.html" class="nav-link">Orders</a></li>
+                    <li><a href="marketing.html" class="nav-link active">Marketing</a></li>
+                    <li><a href="#" class="nav-link">Analytics</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search Anything..." class="search-input">
+                </div>
+                <div class="nav-icons">
+                    <i class="fas fa-question-circle"></i>
+                    <i class="fas fa-cog"></i>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-header">
+            <div class="header-text">
+                <h1>Marketing & Promotion</h1>
+                <p>Boost your product visibility and reach more customers.</p>
+            </div>
+        </div>
+
+        <!-- Marketing Stats -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="activeCampaigns">0</h3>
+                    <p>Active Campaigns</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalImpressions">0</h3>
+                    <p>Total Impressions</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-mouse-pointer"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="totalClicks">0</h3>
+                    <p>Total Clicks</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-pound-sign"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="marketingSpend">£0</h3>
+                    <p>Marketing Spend</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing Plans -->
+        <div class="marketing-plans">
+            <h2>Choose Your Marketing Plan</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Basic Boost</h3>
+                        <div class="plan-price">£5</div>
+                        <p>7 days promotion</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Featured in search results</li>
+                        <li><i class="fas fa-check"></i> Highlighted product card</li>
+                        <li><i class="fas fa-check"></i> 2x visibility boost</li>
+                        <li><i class="fas fa-check"></i> Basic analytics</li>
+                    </ul>
+                    <button class="btn-primary plan-btn" data-plan="basic" data-price="5">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div class="plan-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Premium Boost</h3>
+                        <div class="plan-price">£15</div>
+                        <p>14 days promotion</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Top of search results</li>
+                        <li><i class="fas fa-check"></i> Featured banner placement</li>
+                        <li><i class="fas fa-check"></i> 5x visibility boost</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Email notifications</li>
+                    </ul>
+                    <button class="btn-primary plan-btn" data-plan="premium" data-price="15">
+                        Choose Plan
+                    </button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Ultimate Boost</h3>
+                        <div class="plan-price">£30</div>
+                        <p>30 days promotion</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Homepage featured</li>
+                        <li><i class="fas fa-check"></i> Category leader</li>
+                        <li><i class="fas fa-check"></i> 10x visibility boost</li>
+                        <li><i class="fas fa-check"></i> Full analytics suite</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Social media promotion</li>
+                    </ul>
+                    <button class="btn-primary plan-btn" data-plan="ultimate" data-price="30">
+                        Choose Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Campaigns -->
+        <div class="active-campaigns">
+            <h2>Active Campaigns</h2>
+            <div class="campaigns-container" id="campaignsContainer">
+                <!-- Active campaigns will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Selection Modal -->
+    <div class="modal" id="productSelectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Product to Promote</h2>
+                <button class="close-btn" id="closeProductSelectModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="product-selection" id="productSelection">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Payment</h2>
+                <button class="close-btn" id="closePaymentModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="payment-content">
+                <div class="payment-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-item">
+                        <span>Plan:</span>
+                        <span id="selectedPlanName">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Product:</span>
+                        <span id="selectedProductName">-</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total:</span>
+                        <span id="totalAmount">£0</span>
+                    </div>
+                </div>
+                <div class="payment-form">
+                    <div id="stripe-payment-element">
+                        <!-- Stripe Elements will be inserted here -->
+                    </div>
+                    <button class="btn-primary" id="submit-payment">
+                        Pay Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js"></script>
+</body>
+</html>
